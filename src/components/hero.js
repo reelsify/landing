@@ -7,7 +7,6 @@ import {
   Container,
   Flex,
   Heading,
-  Kicker,
   Section,
   Subhead,
   Text,
@@ -28,7 +27,6 @@ export default function Hero(props) {
           </Box>
           <Box width="half">
             <Heading as="h1">
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.h1}
             </Heading>
             <Subhead as="h2">{props.subhead}</Subhead>
@@ -44,7 +42,6 @@ export default function Hero(props) {
 export const query = graphql`
   fragment HomepageHeroContent on HomepageHero {
     id
-    kicker
     h1: heading
     subhead
     text

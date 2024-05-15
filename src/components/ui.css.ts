@@ -253,7 +253,6 @@ export type TextVariants =
   | "heading"
   | "subhead"
   | "subheadSmall"
-  | "kicker"
   | "caps"
   | "stat"
   | "statLabel"
@@ -335,18 +334,6 @@ export const text: Record<TextVariants, string> = styleVariants({
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
-    },
-  ],
-  kicker: [
-    margin0,
-    {
-      marginBottom: theme.space[2],
-      fontFamily: theme.fonts.mono,
-      fontSize: theme.fontSizes[1],
-      fontWeight: theme.fontWeights.medium,
-      lineHeight: theme.lineHeights.tight,
-      letterSpacing: theme.letterSpacings.wide,
-      textTransform: "uppercase",
     },
   ],
   caps: [

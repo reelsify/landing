@@ -9,7 +9,6 @@ import {
   BlockLink,
   Heading,
   Subhead,
-  Kicker,
   Text,
 } from "../components/ui"
 import SEOHead from "../components/head"
@@ -24,7 +23,6 @@ function PostCard({ slug, image, title, excerpt, author, category, ...props }) {
         </>
       )}
       <Subhead>
-        <Kicker>{category}</Kicker>
         {title}
       </Subhead>
       <Text as="p">{excerpt}</Text>
@@ -47,7 +45,6 @@ function PostCardSmall({ slug, image, title, category, ...props }) {
         </>
       )}
       <Subhead>
-        <Kicker>{category}</Kicker>
         {title}
       </Subhead>
     </BlockLink>

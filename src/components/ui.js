@@ -136,9 +136,6 @@ export function Subhead({ ...props }) {
   return <Text as="h3" variant="subhead" {...props} />
 }
 
-export function Kicker({ ...props }) {
-  return <Text variant="kicker" {...props} />
-}
 
 export function Link({ to, href, ...props }) {
   const url = href || to || ""
@@ -218,6 +215,16 @@ export function Logo({ alt, image, size = "small" }) {
       image={getImage(image)}
       className={styles.logos[size]}
     />
+  )
+}
+
+export function Claim({ claim }) {
+  let claimComponents = claim.split('|')
+  return (
+    <Box center width="fitContent">
+      <Subhead>{claimComponents[0]}</Subhead>
+      <Text>{claimComponents[1]}</Text>
+    </Box>
   )
 }
 

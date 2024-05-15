@@ -120,7 +120,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String!
-      kicker: String
       subhead: String
       image: HomepageImage
       text: String
@@ -131,7 +130,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String
-      kicker: String
       text: String
       image: HomepageImage
       links: [HomepageLink]
@@ -140,7 +138,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageFeatureList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       content: [HomepageFeature]
@@ -149,7 +146,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageCta implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       image: HomepageImage
@@ -167,6 +163,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       text: String
       logos: [HomepageLogo]
+      claims: [String!]
     }
 
     interface HomepageTestimonial implements Node {
@@ -179,7 +176,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageTestimonialList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
     }
@@ -209,7 +205,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageStatList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       image: HomepageImage
@@ -230,7 +225,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String
-      kicker: String
       text: String
       content: [HomepageProduct]
     }
@@ -318,7 +312,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface AboutLeadership implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       subhead: String
       content: [AboutProfile]
@@ -382,7 +375,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String @blocktype
       heading: String!
-      kicker: String
       subhead: String
       image: HomepageImage @link(from: "image___NODE")
       text: String
@@ -393,7 +385,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       blocktype: String @blocktype
       heading: String
-      kicker: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
@@ -402,7 +393,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageFeatureList implements Node & HomepageBlock & HomepageFeatureList
       @dontInfer {
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       content: [HomepageFeature] @link(from: "content___NODE")
@@ -411,7 +401,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageCta implements Node & HomepageBlock & HomepageCta
       @dontInfer {
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
@@ -429,6 +418,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       text: String
       logos: [HomepageLogo] @link(from: "logos___NODE")
+      claims: [String!]
     }
 
     type ContentfulHomepageTestimonial implements Node & HomepageTestimonial
@@ -443,7 +433,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       content: [HomepageTestimonial] @link(from: "content___NODE")
     }
@@ -476,7 +465,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
@@ -497,7 +485,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       blocktype: String @blocktype
       heading: String
-      kicker: String
       text: String
       content: [HomepageProduct] @link(from: "content___NODE")
     }
@@ -546,7 +533,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       subhead: String
       content: [AboutProfile] @link(from: "content___NODE")

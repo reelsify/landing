@@ -8,7 +8,6 @@ import {
   Section,
   Text,
   Box,
-  Kicker,
   Space,
 } from "./ui"
 
@@ -43,7 +42,6 @@ export default function AboutLeadership(props) {
     <Section>
       <Container width="tight">
         <Box center paddingY={4}>
-          {props.kicker && <Kicker>{props.kicker}</Kicker>}
           {props.heading && <Heading as="h1">{props.heading}</Heading>}
           {props.subhead && <Text>{props.subhead}</Text>}
         </Box>
@@ -60,7 +58,6 @@ export default function AboutLeadership(props) {
 export const query = graphql`
   fragment AboutLeadershipContent on AboutLeadership {
     id
-    kicker
     heading
     subhead
     content {
