@@ -2,7 +2,6 @@ import { Link as GatsbyLink } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
-import * as styles from "./ui.css"
 
 export const cx = (...args) => args.filter(Boolean).join(" ")
 
@@ -12,11 +11,11 @@ export function Base({
   className,
   ...props
 }) {
-  return <Component className={cx(..._cx, className)} {...props} />
+  return <Component {...props} />
 }
 
 export function Container({ width = "normal", ...props }) {
-  return <Base cx={[styles.containers[width]]} {...props} />
+  return <Base  {...props} />
 }
 
 export function Flex({
@@ -32,17 +31,6 @@ export function Flex({
 }) {
   return (
     <Base
-      cx={[
-        styles.flex,
-        variant && styles.flexVariants[variant],
-        responsive && styles.flexVariants.responsive,
-        wrap && styles.flexVariants.wrap,
-        gutter && styles.gutter[gutter],
-        gutter ? styles.flexGap[0] : styles.flexGap[gap],
-        marginY && styles.marginY[marginY],
-        alignItems && styles.flexVariants[alignItems],
-        ..._cx,
-      ]}
       {...props}
     />
   )
@@ -61,49 +49,34 @@ export function Box({
 }) {
   return (
     <Base
-      cx={[
-        styles.widths[width],
-        background && styles.backgrounds[background],
-        padding && styles.padding[padding],
-        paddingY && styles.paddingY[paddingY],
-        radius && styles.radii[radius],
-        center && styles.box.center,
-        order && styles.order[order],
-        ..._cx,
-      ]}
       {...props}
     />
   )
 }
 
 export function FlexList(props) {
-  return <Flex as="ul" cx={[styles.list]} {...props} />
+  return <Flex as="ul"  {...props} />
 }
 
 export function List(props) {
-  return <Base as="ul" cx={[styles.list]} {...props} />
+  return <Base as="ul"  {...props} />
 }
 
 export function Space({ size = "auto", ...props }) {
-  return <Base cx={[styles.margin[size]]} {...props} />
+  return <Base  {...props} />
 }
 
 export function Nudge({ left, right, top, bottom, ...props }) {
   return (
     <Base
-      cx={[
-        left && styles.marginLeft[-left],
-        right && styles.marginRight[-right],
-        top && styles.marginTop[-top],
-        bottom && styles.marginBottom[-bottom],
-      ]}
+      
       {...props}
     />
   )
 }
 
 export function Section(props) {
-  return <Box as="section" className={styles.section} {...props} />
+  return <Box as="section" {...props} />
 }
 
 export function Text({
@@ -114,11 +87,6 @@ export function Text({
 }) {
   return (
     <Base
-      cx={[
-        styles.text[variant],
-        center && styles.text.center,
-        bold && styles.text.bold,
-      ]}
       {...props}
     />
   )
@@ -142,22 +110,22 @@ export function Link({ to, href, ...props }) {
   if (isAbsoluteURL(url)) {
     return (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
-      <a href={url} className={styles.link} {...props} />
+      <a href={url} {...props} />
     )
   }
-  return <GatsbyLink to={url} className={styles.link} {...props} />
+  return <GatsbyLink to={url}  {...props} />
 }
 
 export function NavLink({ ...props }) {
-  return <Base as={Link} cx={[styles.navlink]} {...props} />
+  return <Base as={Link}  {...props} />
 }
 
 export function NavButtonLink({ ...props }) {
-  return <Base as="button" cx={[styles.navButtonlink]} {...props} />
+  return <Base as="button"  {...props} />
 }
 
 export function Button({ variant = "primary", ...props }) {
-  return <Base as={Link} cx={[styles.buttons[variant]]} {...props} />
+  return <Base as={Link}  {...props} />
 }
 
 export function ButtonList({ links = [], reversed = false, ...props }) {
@@ -182,7 +150,7 @@ export function ButtonList({ links = [], reversed = false, ...props }) {
 }
 
 export function CTALink(props) {
-  return <Base as={Link} cx={[styles.ctaLink]} {...props} />
+  return <Base as={Link}  {...props} />
 }
 
 export function LinkList({ links = [], ...props }) {
@@ -199,12 +167,12 @@ export function LinkList({ links = [], ...props }) {
 }
 
 export function Blockquote(props) {
-  return <Base as="blockquote" cx={[styles.blockquote]} {...props} />
+  return <Base as="blockquote"  {...props} />
 }
 
 export function Avatar({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} className={styles.avatar} />
+    <GatsbyImage alt={alt} image={getImage(image)}  />
   )
 }
 
@@ -213,19 +181,12 @@ export function Logo({ alt, image, size = "small" }) {
     <GatsbyImage
       alt={alt}
       image={getImage(image)}
-      className={styles.logos[size]}
     />
   )
 }
 
-export function Claim({ claim }) {
-  let claimComponents = claim.split('|')
-  return (
-    <Box center width="fitContent">
-      <Subhead>{claimComponents[0]}</Subhead>
-      <Text>{claimComponents[1]}</Text>
-    </Box>
-  )
+export function Kicker({ ...props }) {
+  return <Text variant="kicker" {...props} />
 }
 
 export function Icon({ alt, image, size = "medium" }) {
@@ -233,23 +194,23 @@ export function Icon({ alt, image, size = "medium" }) {
     <GatsbyImage
       alt={alt}
       image={getImage(image)}
-      className={styles.icons[size]}
+      
     />
   )
 }
 
 export function IconLink(props) {
-  return <NavLink cx={[styles.iconLink]} {...props} />
+  return <NavLink  {...props} />
 }
 
 export function InteractiveIcon(props) {
-  return <Base as="button" cx={[styles.interactiveIcon]} {...props} />
+  return <Base as="button" {...props} />
 }
 
 export function VisuallyHidden(props) {
-  return <Base as="span" cx={[styles.visuallyHidden]} {...props} />
+  return <Base as="span"  {...props} />
 }
 
 export function BlockLink(props) {
-  return <Link className={styles.blockLink} {...props} />
+  return <Link  {...props} />
 }

@@ -2,24 +2,17 @@ import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Box, Flex, FlexList, NavButtonLink, NavLink } from "./ui"
 import Caret from "./caret"
-import * as styles from "./nav-item-group.css"
-import { media } from "./ui.css"
+
 
 export default function NavItemGroup({ name, navItems }) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [popupVisible, setPopupVisible] = React.useState(false)
-  const isSmallScreen = () => {
-    return !window.matchMedia(media.small).matches
-  }
   const onGroupButtonClick = React.useCallback(() => {
     if (!isOpen) {
       setIsOpen(true)
       setPopupVisible(true)
     } else {
       // ensures that sub-menu closes when no animation is available
-      if (isSmallScreen()) {
-        setIsOpen(false)
-      }
       setPopupVisible(false)
     }
   }, [isOpen])
@@ -47,7 +40,7 @@ export default function NavItemGroup({ name, navItems }) {
         `[data-id="${name}-group-wrapper"]`
       )
       if (
-        !isSmallScreen() &&
+        
         isOpen &&
         wrapper &&
         !wrapper.contains(event.target)
@@ -67,13 +60,13 @@ export default function NavItemGroup({ name, navItems }) {
       data-id={`${name}-group-wrapper`}
       variant="columnStart"
       gap={4}
-      className={styles.navGroupWrapper}
+
     >
       <NavButtonLink
         onClick={onGroupButtonClick}
-        className={styles.navGroupTitle}
+      
       >
-        <Flex gap={1} className={styles.navGroupTitleInner}>
+        <Flex gap={1} >
           {name}
           <Caret direction={isOpen ? "up" : "down"} />
         </Flex>
@@ -81,32 +74,30 @@ export default function NavItemGroup({ name, navItems }) {
       {isOpen && (
         <Box
           data-id={`${name}-popup-box`}
-          className={
-            styles.navLinkListWrapper[popupVisible ? "opened" : "closed"]
-          }
+          
         >
           <FlexList
             variant="columnStart"
             gap={2}
-            className={styles.navLinkListWrapperInner}
+            
           >
             {navItems.map((navItem) => (
               <li key={navItem.id}>
-                <NavLink to={navItem.href} className={styles.navLinkListLink}>
+                <NavLink to={navItem.href} >
                   <Flex variant="start" gap={3}>
                     {navItem.icon && (
                       <GatsbyImage
                         alt={navItem.icon.alt}
                         image={getImage(navItem.icon.gatsbyImageData)}
-                        className={styles.navIcon}
+                  
                       />
                     )}
                     <Flex variant="columnStart" marginY={1} gap={0}>
-                      <Box as="span" className={styles.navLinkTitle}>
+                      <Box as="span" >
                         {navItem.text}
                       </Box>
                       {!!navItem.description && (
-                        <Box as="p" className={styles.navLinkDescription}>
+                        <Box as="p" >
                           {navItem.description}
                         </Box>
                       )}

@@ -6,10 +6,12 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbycontentfulhomepage.gatsbyjs.io/",
-    title: "Gatsby Contentful Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with Contentful",
+    siteUrl: "https://reelsify.app",
+    title: "Reelsify | AI powered short video creation and distribution",
+    author: `Aravind Karnam`,
+    description: `Reelsify AI helps product and marketing teams to create bite-sized videos
+     with just text prompt and screen recordings, publish on social media platforms and your 
+     own web and mobile apps with plug and play widgets like stories, Play in Picture and Reels.`,
   },
   plugins: [
     {
@@ -24,12 +26,12 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-vanilla-extract",
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Starter Contentful Homepage",
-        short_name: "Gatsby",
+        name: "Reelsify | AI powered short video creation and distribution",
+        short_name: "Reelsify",
         start_url: "/",
         // These can be imported once ESM support lands
         background_color: "#ffe491",
