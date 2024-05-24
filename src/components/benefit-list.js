@@ -44,12 +44,11 @@ export default function BenefitList(props) {
           )}
         </div>
         <ul
-          role="list"
           className="mx-auto mt-16 grid max-w-2xl grid-row gap-8 lg:max-w-none"
         >
-          {contentMatrix.map((row) => (
-            <li>
-              <ul role="list" className="flex flex-col gap-y-8 lg:flex-row">
+          {contentMatrix.map((row,i) => (
+            <li key={i}>
+              <ul  className="flex flex-col gap-y-8 lg:flex-row">
                 {row.map((element) => (
                   <li key={element.id} className="lg:max-w-xs mx-auto">
                     <GatsbyImage className="h-5 w-5" alt={element.image.alt} image={getImage(element.image.gatsbyImageData)} />

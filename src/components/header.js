@@ -123,7 +123,7 @@ export default function Header() {
               </div>
               {isOpen && (
                 <div
-                  class="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 opacity-100 scale-100"
+                  className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 opacity-100 scale-100"
                   tabindex="-1"
                   data-open=""
                   // style="--button-width: 32px;"
@@ -138,7 +138,7 @@ export default function Header() {
                           // />
                           <></>
                         ) : (
-                          <a class="block w-full p-2" href={navItem.href}>
+                          <a className="block w-full p-2" href={navItem.href}>
                             {navItem.text}
                           </a>
                         )}

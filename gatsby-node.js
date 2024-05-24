@@ -130,6 +130,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageFeature implements Node & HomepageBlock {
       id: ID!
       blocktype: String
+      kicker: String
       heading: String
       text: String
       image: HomepageImage
@@ -139,6 +140,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageFeatureList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
+      kicker: String
       heading: String
       text: String
       content: [HomepageFeature]
@@ -385,6 +387,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageFeature implements Node & HomepageBlock & HomepageFeature
       @dontInfer {
       blocktype: String @blocktype
+      kicker: String
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
@@ -394,6 +397,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageFeatureList implements Node & HomepageBlock & HomepageFeatureList
       @dontInfer {
       blocktype: String @blocktype
+      kicker: String
       heading: String
       text: String
       content: [HomepageFeature] @link(from: "content___NODE")
