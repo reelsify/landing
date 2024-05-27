@@ -5,7 +5,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop --host=0.0.0.0",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^15.11.1",
     "gatsby": "^5.0.0",
+    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-manifest": "^5.0.0",
     "gatsby-plugin-sharp": "^5.0.0",
